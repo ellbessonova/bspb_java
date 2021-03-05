@@ -1,3 +1,5 @@
+package Lesson_3;
+
 import java.util.*;
 
 public class Lesson_3 {
@@ -32,7 +34,7 @@ public class Lesson_3 {
             }
         }
         for (int i = 0; i < list.size(); i++) {
-            if (list.get(i).getGender() == "муж") {
+            if (list.get(i).getGender().equals("муж")) {
                 System.out.print(list.get(i).getName() + " " + list.get(i).getGender() + " " + list.get(i).getAge());
                 if ((i != list.size() - 1)) {
                     System.out.println();
