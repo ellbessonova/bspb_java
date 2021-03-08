@@ -1,13 +1,13 @@
+package Lesson_4;
+
 import java.util.Objects;
 
-public class Client {
-    private String name;
-    private String gender;
-    private int age;
+public abstract class Client implements Comparable<Client> {
+    protected String name;
+    protected int age;
 
-    public Client(String name, String gender, int age) {
+    public Client(String name, int age) {
         this.name = name;
-        this.gender = gender;
         this.age = age;
     }
 
@@ -17,14 +17,6 @@ public class Client {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public String getGender() {
-        return gender;
-    }
-
-    public void setGender(String gender) {
-        this.gender = gender;
     }
 
     public int getAge() {
@@ -40,11 +32,22 @@ public class Client {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
         Client client = (Client) o;
-        return age == client.age && Objects.equals(name, client.name) && Objects.equals(gender, client.gender);
+        return age == client.age && Objects.equals(name, client.name);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(name, gender, age);
+        return Objects.hash(name, age);
+    }
+
+    @Override
+    public int compareTo(Client o) {
+        if (this.age > o.age) {
+            return +1;
+        } else if (this.age == o.age) {
+            return 0;
+        } else {
+            return -1;
+        }
     }
 }
